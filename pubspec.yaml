@@ -1,0 +1,48 @@
+name: travel_cards_gk
+description: A new Flutter project.
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.18.6 <3.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.0
+
+flutter:
+
+  uses-material-design: true
+
+  assets:
+    - images/
+    - images/Pisa/
+    - images/London/
+    - images/Budapest/
+
+  fonts:
+    - family: OpenSans
+      fonts:
+        - asset: fonts/Open-Sans/OpenSans-Regular.ttf
+        - asset: fonts/Open-Sans/OpenSans-Light.tff
+          weight: 300
+        - asset: fonts/Open-Sans/OpenSans-Bold.ttf
+          weight: 700
+        - asset: fonts/Open-Sans/OpenSans-Semibold.ttf
+          weight: 600
+        - asset: fonts/Open-Sans/OpenSans-Extrabold.ttf
+          weight: 800
+    - family: DMSerifDisplay
+      fonts:
+        - asset: fonts/DM-Serif-Display/DMSerifDisplay-Regular.ttf
+        - asset: fonts/DM-Serif-Display/DMSerifDisplay-Italic.ttf
+          style: italic
+       
