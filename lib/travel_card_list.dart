@@ -26,8 +26,8 @@ class _TravelCardListState extends State<TravelCardList> with SingleTickerProvid
   double _prevScrollX = 0;
   bool _isScrolling = false;
 
-  late AnimationController _tweenController;
-  late Tween<double> _tween;
+  AnimationController? _tweenController;
+  Tween<double>? _tween;
   late Animation<double> _tweenAnim;
 
 
@@ -43,7 +43,7 @@ class _TravelCardListState extends State<TravelCardList> with SingleTickerProvid
       child: PageView.builder(
         physics: const BouncingScrollPhysics(),
         controller: _pageController,
-        itemCount: 8,
+        itemCount: widget.cities.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) => _buildItemRenderer(i),
       ),
@@ -84,7 +84,7 @@ class _TravelCardListState extends State<TravelCardList> with SingleTickerProvid
       _isScrolling = true;
       _prevScrollX = notification.metrics.pixels;
       if (_tween != null) {
-        _tweenController.stop();
+        _tweenController!.stop();
       }
     }
     return true;
@@ -108,15 +108,15 @@ class _TravelCardListState extends State<TravelCardList> with SingleTickerProvid
     if (_tweenController == null) {
       _tweenController = AnimationController(vsync: this,  duration: Duration(milliseconds: tweenTime));
       _tween = Tween<double>(begin: -1, end: 0);
-      _tweenAnim = _tween.animate(CurvedAnimation(parent: _tweenController, curve: Curves.elasticOut))
+      _tweenAnim = _tween!.animate(CurvedAnimation(parent: _tweenController!, curve: Curves.elasticOut))
         ..addListener(() {
           _setOffset(_tweenAnim.value);
         });
     }
-    _tween.begin = _normalizedOffset;
-    _tweenController.reset();
-    _tween.end = 0;
-    _tweenController.forward();
+    _tween!.begin = _normalizedOffset;
+    _tweenController!.reset();
+    _tween!.end = 0;
+    _tweenController!.forward();
   }
 
 }

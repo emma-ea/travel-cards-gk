@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'travel_card_list.dart';
 import 'styles.dart';
 import 'demo_data.dart';
+import 'hotel_list.dart';
 
 
 class TravelCardDemo extends StatefulWidget {
@@ -49,6 +50,8 @@ class _TravelCardDemoState extends State<TravelCardDemo> {
               cities: _cityList,
               onCityChange: _handleCityChange,
             ),
+            HotelList(_currentCity.hotels),
+            const Expanded(child: SizedBox(),),
           ],
         ),
       ),
