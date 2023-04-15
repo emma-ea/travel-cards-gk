@@ -61,7 +61,12 @@ class _TravelCardListState extends State<TravelCardList> with SingleTickerProvid
   Widget _buildItemRenderer(int itemIndex) {
     return Rotation3d(
       rotationY: _normalizedOffset * _maxRotation,
-      child: TravelCardRenderer(),
+      child: TravelCardRenderer(
+        _normalizedOffset,
+        city: widget.cities[itemIndex % widget.cities.length],
+        cardWidth: _cardWidth,
+        cardHeight: _cardHeight,
+      ),
     );
   }
 
