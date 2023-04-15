@@ -43,7 +43,7 @@ class _TravelCardListState extends State<TravelCardList> with SingleTickerProvid
       child: PageView.builder(
         physics: const BouncingScrollPhysics(),
         controller: _pageController,
-        itemCount: widget.cities.length,
+        itemCount: 8,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, i) => _buildItemRenderer(i),
       ),
