@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'travel_card_list.dart';
 import 'styles.dart';
 import 'demo_data.dart';
 
@@ -27,18 +29,47 @@ class _TravelCardDemoState extends State<TravelCardDemo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(),
+      body: Container(
+        color: Colors.white,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const Expanded(child: SizedBox()),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: Styles.hzScreenPadding),
+              child: Text(
+                'Where are you going next?',
+                overflow: TextOverflow.ellipsis,
+                style: Styles.appHeader,
+                maxLines: 2,
+              ),
+            ),
+            TravelCardList(
+              cities: _cityList,
+              onCityChange: _handleCityChange,
+            ),
+          ],
+        ),
+      ),
     );
+  }
+
+  void _handleCityChange(City city) {
+    setState(() {
+      _currentCity = city;
+    });
   }
 
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
       elevation: 0.0,
-      leading: Icon(Icons.menu, color: Colors.black),
+      leading: const Icon(Icons.menu, color: Colors.black),
       backgroundColor: Colors.white,
-      brightness: Brightness.light,
-      actions: <Widget>[
+      systemOverlayStyle: SystemUiOverlayStyle.light,
+      actions: const [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: Styles.hzScreenPadding),
+          padding: EdgeInsets.symmetric(horizontal: Styles.hzScreenPadding),
           child: Icon(Icons.search, color: Colors.black),
         ),
       ],
