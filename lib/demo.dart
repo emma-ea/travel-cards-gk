@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:travel_cards_gk/constants.dart';
 import 'travel_card_list.dart';
 import 'styles.dart';
 import 'demo_data.dart';
@@ -23,7 +24,7 @@ class _TravelCardDemoState extends State<TravelCardDemo> {
     super.initState();
     var data = DemoData();
     _cityList = data.getCities();
-    _currentCity = _cityList[1];
+    _currentCity = _cityList[kInitialCity];
   }
 
   @override

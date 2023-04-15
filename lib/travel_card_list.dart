@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:travel_cards_gk/constants.dart';
 import 'demo_data.dart';
 import 'rotation_3d.dart';
 import 'travel_card_renderer.dart';
@@ -8,7 +9,7 @@ class TravelCardList extends StatefulWidget {
   final List<City> cities;
   final Function(City city) onCityChange;
 
-  const TravelCardList({Key? key, required this.cities, required this.onCityChange}) : super(key: key);
+  const TravelCardList({super.key, required this.cities, required this.onCityChange});
 
   @override
   State<TravelCardList> createState() => _TravelCardListState();
@@ -36,7 +37,7 @@ class _TravelCardListState extends State<TravelCardList> with SingleTickerProvid
     final Size size = MediaQuery.of(context).size;
     _cardHeight = (size.height *  .48).clamp(300.0, 400.0);
     _cardWidth = (size.width * .8);
-    _pageController = PageController(initialPage: 1, viewportFraction: _cardWidth / size.width);
+    _pageController = PageController(initialPage: kInitialCity, viewportFraction: _cardWidth / size.width);
 
     Widget listContent = SizedBox(
       height: _cardHeight,

@@ -12,7 +12,7 @@ class HotelList extends StatefulWidget {
   State<HotelList> createState() => _HotelListState();
 }
 
-class _HotelListState extends State<HotelList> with SingleTickerProviderStateMixin {
+class _HotelListState extends State<HotelList> with TickerProviderStateMixin {
 
   late AnimationController _anim;
 
